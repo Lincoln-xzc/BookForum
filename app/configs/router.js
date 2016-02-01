@@ -16,9 +16,20 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
   });
   //定义一个子路由
   $stateProvider.state('create', {
+
     url:'/create',
     templateUrl:'controllers/reader/create.html',
     controller:'ReaderCreateCtrl as vm'
+  });
+  $stateProvider.state('thread', {
+    url:'/thread',
+    template:'<div ui-view></div>',
+    abstract:true
+  });
+  $stateProvider.state('list', {
+    url:'/list',
+    templateUrl:'controllers/thread/list.html',
+    controller:'ThreadListCtrl as vm'
   });
   $stateProvider.state('home', {
     url: '/',

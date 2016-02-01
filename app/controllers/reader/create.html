@@ -1,35 +1,39 @@
-<div class="container-fluid">
-  <form class="" novalidate>
+<div class="container-fluid" style="padding: 0;margin-top: 40px;margin-left: 40%;">
+  <form class="" name="form" ng-submit="vm.submit(vm.form)" novalidate>
     <div class="form-group">
       <label for="_email">邮箱</label>
-      <input type="eamil" id="_email" ng-model="vm.form.email"/>
+      <input type="email" id="_email" name="email" bf-field-error  ng-model="vm.form.email" ng-required="true"/>
+      <!--<ul ng-if="form.email.$dirty && form.email.$invalid">
+        <li ng-if="form.email.$error.email">无效的邮箱格式</li>
+        <li ng-if="form.email.$error.required">此项为必填项</li>
+      </ul>-->
     </div>
     <div class="form-group">
       <label for="_nickname">昵称</label>
-      <input type="text" id="_nickname" ng-model="vm.form.nickname"/>
+      <input type="text" id="_nickname" name="nickname" bf-field-error ng-model="vm.form.nickname" ng-required="true"/>
     </div>
     <div class="form-group">
       <label for="_password">密码</label>
-      <input type="password" id="_password" ng-model="vm.form.password">
+      <input type="password" id="_password" name="password" bf-field-error ng-model="vm.form.password" ng-required="true"/>
     </div>
     <div class="form-group">
       <label for="_retypedPassword">确认密码</label>
-      <input type="password" id="_retypedPassword" ng-model="vm.form.retypedPassword">
+      <input type="password" id="_retypedPassword" name="retypedPassword" bf-field-error="{same :'确认密码必须与密码相同'}" ng-model="vm.form.retypedPassword" bf-assert-same-as="vm.form.password" ng-required="true"/>
     </div>
     <div class="form-group">
       <label for="_captcha">图形验证码</label>
-      <input type="text" id="_captcha" ng-model="vm.form.captcha">
+      <input type="text" id="_captcha" name="captcha" ng-model="vm.form.captcha">
       <img src="" alt="图形验证码">
     </div>
     <div class="form-group">
-      <input id="_accepted" type="checkbox" ng-model="vm.form.agree">
+      <input id="_accepted" type="checkbox" ng-model="vm.form.agree" bf-assert-same-as="true">
       <label for="_accepted">
           我已阅读并同意
           <a href="">用户服务协议</a>
       </label>
     </div>
     <div>
-      <button class="btn btn-primary" type="submit" ng-submit="vm.submit(vm.form)">提交</button>
+      <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">立即注册</button>
     </div>
   </form>
 </div>
