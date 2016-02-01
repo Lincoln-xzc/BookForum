@@ -7,7 +7,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
     controller: 'HomeIndexCtrl'
   });
   //副路由
-  $urlRouterProvider.state('reader',{
+  $stateProvider.state('reader',{
     url:'/reader',
     //父路由一般只要提供一个这样的template就够了，不必要使用templateUrl,页面中公共的部分通过组件型指令去实现会更灵活、漂亮
     template:'<div ui-view></div>',
@@ -15,7 +15,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
     abstract:true
   });
   //定义一个子路由
-  $urlRouterProvider.state('reader.create',{
+  $stateProvider.state('create', {
     url:'/create',
     templateUrl:'controllers/reader/create.html',
     controller:'ReaderCreateCtrl as vm'
