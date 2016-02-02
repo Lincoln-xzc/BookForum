@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding: 0;">
   <form class="" name="form" ng-submit="vm.submit(vm.form)" novalidate>
     <div class="form-group">
       <label for="_email">邮箱</label>
@@ -26,14 +26,14 @@
       <img src="" alt="图形验证码">
     </div>
     <div class="form-group">
-      <input id="_accepted" type="checkbox" ng-model="vm.form.agree">
+      <input id="_accepted" type="checkbox" ng-model="vm.form.agree" bf-assert-same-as="true">
       <label for="_accepted">
           我已阅读并同意
           <a href="">用户服务协议</a>
       </label>
     </div>
     <div>
-      <button class="btn btn-primary" type="submit">提交</button>
+      <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">立即注册</button>
     </div>
   </form>
 </div>

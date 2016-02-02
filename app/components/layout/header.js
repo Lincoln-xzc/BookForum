@@ -9,6 +9,6 @@ angular.module('app').directive('layoutHeader', function LayoutHeader() {
     restrict: 'EA',
     scope: {},
     templateUrl: 'components/layout/header.html',
-    controller: 'LayoutHeaderCtrl'
+    controller: 'LayoutHeaderCtrl as vm'
   };
 });

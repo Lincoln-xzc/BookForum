@@ -8,6 +8,6 @@ angular.module('app').directive('layoutMenu', function LayoutMenu() {
     restrict: 'EA',
     scope: {},
     templateUrl: 'components/layout/menu.html',
-    controller: 'LayoutMenuCtrl'
+    controller: 'LayoutMenuCtrl as vm'
   };
 });

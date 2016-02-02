@@ -4,7 +4,12 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('default', {
     url: '',
     templateUrl: 'controllers/home/index.html',
-    controller: 'HomeIndexCtrl'
+    controller: 'HomeIndexCtrl as vm'
+  });
+  $stateProvider.state('home', {
+    url: '/',
+    templateUrl: 'controllers/home/index.html',
+    controller: 'HomeIndexCtrl as vm'
   });
   //副路由
   $stateProvider.state('reader',{
@@ -15,16 +20,33 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
     abstract:true
   });
   //定义一个子路由
-  $stateProvider.state('create',{
+  $stateProvider.state('reader.create', {
+
     url:'/create',
     templateUrl:'controllers/reader/create.html',
     controller:'ReaderCreateCtrl as vm'
   });
-  $stateProvider.state('home', {
-    url: '/',
-    templateUrl: 'controllers/home/index.html',
-    controller: 'HomeIndexCtrl'
+  $stateProvider.state('thread', {
+    url:'/thread',
+    template:'<div ui-view></div>',
+    abstract:true
   });
+  $stateProvider.state('thread.list', {
+    url:'/list',
+    templateUrl:'controllers/thread/list.html',
+    controller:'ThreadListCtrl as vm'
+  });
+  $stateProvider.state('thread.tree', {
+    url:'/tree',
+    templateUrl:'controllers/thread/tree.html',
+    controller:'ThreadTreeCtrl as vm'
+  });
+  $stateProvider.state('thread.show',{
+    url:'/:id/show?title&poster',
+    templateUrl:'controllers/thread/show.html',
+    controller: 'ThreadShowCtrl as vm'
+  });
+
 
   $stateProvider.state('notFound', {
     url: '/notFound',

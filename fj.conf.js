@@ -15,8 +15,8 @@ module.exports = function (config) {
       delay: 500  // 延迟毫秒数，可选
     },
     {
-      url: '^/api/books',
-      delay: 0
+
+      url: '^/api/readers',
     }
   ];
   // 用户自定义的middleware将优先于默认的

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app').controller('AppLayoutCtrl', function AppLayoutCtrl($scope, utils) {
-  var vm = $scope.vm = {};
+  var vm = this;
   $scope.$on('$stateChangeSuccess', function(event, state) {
     vm.controllerCss = utils.getControllerCss(state.controller);
   });
@@ -11,6 +11,6 @@ angular.module('app').directive('appLayout', function appLayout() {
     restrict: 'EA',
     scope: {},
     templateUrl: 'components/layout/_layout.html',
-    controller: 'AppLayoutCtrl'
+    controller: 'AppLayoutCtrl as vm'
   };
 });
